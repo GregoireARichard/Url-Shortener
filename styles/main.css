@@ -1,6 +1,6 @@
 
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     margin:0;
     font-family: 'Poppins', sans-serif;
 }
@@ -45,15 +45,14 @@ body{
     /* border:1px solid #000; */
     width: 75px;
 }
-.active__true, .active__false:hover{
-    cursor: pointer;
-}
 .on{
     border-bottom: 1px solid #368F8B;
+    width:70px;
 }
-/* [class |= active]{
-    margin-left:15px;
+.forms{
+    margin-top:15px;
+    display: flex;
+    width:200px; 
+    height:30px;
+    text-align: center;
 }
-[class |= active]:hover{
-    cursor:pointer
-} */

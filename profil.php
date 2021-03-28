@@ -44,7 +44,7 @@
             $msg = "<p class=\"error\">Invalid Url</p>";
         }
         //cleaner function part
-        $clean = $bdd->prepare("DELETE FROM urllinks WHERE Shorten = '.php'");
+        $clean = $bdd->prepare("DELETE FROM urllinks WHERE Shorten = '.php'"); //deletes all empty $_POST sent
         $clean->execute();
     }
     function createFile(){
@@ -93,21 +93,51 @@
             <input type="submit" name="submit" value="Short It">
         </form>
         <h2 class="linkHistory">Your Mini Link history</h2>
-        <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views FROM urllinks WHERE id = $getid");
+        <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views, linkID FROM urllinks WHERE id = $getid");
         while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
             if($row['Shorten']!= ".php"){//does not return empty links
+                    $linkID = $row['linkID'];
+                    if(isset($_POST[$linkID .'on'])){
+                        $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 1 WHERE LinkID = $linkID" );
+                        $resultActive->execute();
+                    }
+                    elseif(isset($_POST[$linkID .'off'])){
+                        $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 0 WHERE LinkID = $linkID" ); 
+                        $resultActive->execute();
+                    }
+                    $isLinkOn =  "<div class=active__false><p class='off'>Link off</p></div>";
+                    $form = "<form action ='#' method ='post'>
+                                <input type='submit' name='".$linkID."on' value='Turn On'>
+                            </form>";
+                    $form1 = "<form action ='#' method ='post'>
+                                <input type='submit' name='".$linkID."off' value='Turn Off'>
+                            </form>";
                 echo "<div class='table'>
                         <div class='linkTable'><a href='". $row['Shorten']. "' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
                 echo "<div class='views'> <p class='viewsText'>". $row['Views'] ."</p></div> ";
-                if($row['Active']){
-                    echo "<div class=active__true><p class='on'>Link on</p></div>";
-                    
-                }else{
-                    echo "<div class=active__false><p class='off'>Link off</p></div>";
-                }
+                echo "<div class='forms'>".$form . $form1 . "</div>" ; 
+                // echo $linkID;    
             }
-                echo "</div>";
-        }  
+            echo $linkID;
+            echo "</div>";
+            
+        } 
+        // $resultActive = $bdd->query("SELECT  Active FROM urllinks WHERE id = $getid");
+        // $row_ = $resultActive->fetch(PDO::FETCH_ASSOC);
+        // if(isset($_POST['on'])){
+        //     echo "blabla";
+        //     $form = "<form action ='#' method ='post'>
+        //                 <input type='submit' name='on' value='Turn On'>
+        //             </form>";
+        //     $row_['Active'] = True;
+        // } 
+        // if(isset($_POST['off'])){
+        //     echo "bluhbluh";
+        //     $row_['Active'] = False;
+        //     $form = "<form action ='#' method ='post'>
+        //                 <input type='submit' name='off' value='Turn Off'>
+        //             </form>";
+        // }
         
         /*
         TODO : view incrementation
