@@ -8,16 +8,16 @@
         $stmt = $bdd->prepare('SELECT * FROM URLmembers WHERE id = ? ');
         $stmt->execute(array($getid));
         $userinfo = $stmt->fetch();
-    
+    }
     $baseUrl = "localhost/URL/";
     $msg = ' ';
-    }
+    
     function shortenUrl($url){
         if (filter_var($url, FILTER_VALIDATE_URL)){
             $randStr = substr(str_shuffle(md5(rand())),0,6);
             $oldfile = file_get_contents('url_list.php') . "\n";
             $newfile = '$list[\''.$randStr.'\']=\''.$url.'\';';
-            file_put_contents('url_list.php', $oldfile.$newfile);
+            // file_put_contents('url_list.php', $oldfile.$newfile);
             return $randStr;
         } else{
             return false;
@@ -76,6 +76,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your profile</title>
+    <link rel="stylesheet" href="styles/main.css"/>
 </head>
 <body>
     <h2 class="name">bonjour <?php echo $userinfo['username']; ?></h2>
@@ -85,5 +86,12 @@
         <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
         <input type="submit" name="submit" value="Short It">
     </form>
+    <?php $resultLink = $bdd->query("SELECT Original FROM urllinks WHERE id = $getid");
+    while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
+        if(!empty($row['Original'])){
+            echo "<div class='linkTable'>". $row['Original']. "<br /></div>"; //does not return empty links
+        }
+    }   
+        ?>
 </body>
 </html>

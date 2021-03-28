@@ -13,9 +13,9 @@ session_destroy();
     <title>Sign out</title>
 </head>
 <body>
-    <h2>Vous êtes bien déconnecté</h2>
+    <h2>You're disconnect, you're going to be redirected</h2>
 </body>
 </html>
 <?php 
-//header("location : index.php");
+header("location: index.php" );
 ?>
