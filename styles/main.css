@@ -1,25 +1,69 @@
-
+:root{
+    --font : 'Poppins', sans-serif;
+    --backgroundColor :#F3DFC1;
+    --lightBlue : #368F8B;
+    --signOutRed: #EE7B6B;
+}
 body{
     /* overflow: hidden; */
     margin:0;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font);
 }
 .main{
     width:70vw;
     margin: 0 auto;
     text-align: center;
 }
+.mainIndex{
+    text-align: center;
+    margin-top: 150px;
+    width:70vw;
+    height:35vh;
+}
 .footer{
-    background-color:#F3DFC1;
+    background-color: var(--backgroundColor);
     width:100vw;
     height:10vh;
     position: fixed;
     bottom:0;
 }
 .footerText{
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font);
     text-align: center;
     margin-top:4vh;
+}
+.header{
+    background-color: var(--backgroundColor);
+    width:100vw;
+    height:10vh;
+    position: fixed;
+    top:0;
+}
+.headerText{
+    margin-top: 3vh;
+    margin-left:1000px;
+    display: flex;
+    font-family: var(--font);
+    text-align: center;   
+}
+.signinLink, .signupLink{
+    text-decoration: none;
+    font-size: 20px;
+}
+.signup{
+    width: 10vw;
+    height:4vh;
+    background-color: var(--signOutRed);
+    border-radius: 5%;
+}
+.signin{
+    width:20vw;
+}
+.signupLink{
+    color:#fff;
+}
+.signinLink{
+    color:#000;
 }
 .table{
     display: flex;
@@ -46,7 +90,7 @@ body{
     width: 75px;
 }
 .on{
-    border-bottom: 1px solid #368F8B;
+    border-bottom: 1px solid var(--lightBlue);
     width:70px;
 }
 .forms{

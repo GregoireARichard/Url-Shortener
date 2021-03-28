@@ -1,83 +1,60 @@
 <?php 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=URLmembers','root', '');
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if(isset($_POST['submit'])) {
-        $name = htmlspecialchars($_POST['name']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $mdp = sha1($_POST['pass']);
-        $mdp2 = sha1($_POST['pass2']);
-        $ID = rand(10000,999999) + rand(10,150) - rand(150,1000); // randomisation of the ID to prevent from hijacking
-        if(!empty($_POST['name']) AND !empty($_POST['mail']) AND !empty($_POST['pass']) AND !empty($_POST['pass2'])) {
-           $pseudolength = strlen($name);
-           if($pseudolength <= 255) {
-                 if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                    $stmt = $bdd->prepare("SELECT * FROM URLmembers WHERE mail = ?");
-                    $stmt->execute(array($mail));
-                    $mailexist = $stmt->rowCount();
-                    if($mailexist == 0) {
-                       if($mdp == $mdp2) {
-                          $insertmbr = $bdd->prepare("INSERT INTO URLmembers (username, mail, password, ID) VALUES(?, ?, ?, ?)");
-                          $insertmbr->execute(array($name, $mail, $mdp, $ID));
-                          //$insertlnk = $bdd->prepare("INSERT INTO urllinks (ID) VALUES (?)"); //insert into the link table to get the same ID
-                          //$insertlnk->$bdd->execute(array($ID));
-                          $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
-                          header('location: connexion.php');
-                       } else {
-                          $erreur = "Vos mots de passes ne correspondent pas !";
-                       }
-                    } else {
-                       $erreur = "Adresse mail déjà utilisée !";
-                    }
-                 } else {
-                    $erreur = "Votre adresse mail n'est pas valide !";
-                 }
-              } else {
-                 $erreur = "Vos adresses mail ne correspondent pas !";
-              }
-           } else {
-              $erreur = "Votre pseudo ne doit pas dépasser 255 caractères !";
-           }
-        } else {
-           $erreur = "Tous les champs doivent être complétés !";
+    $baseUrl = "localhost/URL/";
+    $msg = ' ';
+    
+    function shortenUrl($url){
+        if (filter_var($url, FILTER_VALIDATE_URL)){
+            $randStr = substr(str_shuffle(md5(rand())),0,6);
+            $oldfile = file_get_contents('pages/url_list.php') . "\n";
+            $newfile = '$list[\''.$randStr.'\']=\''.$url.'\';';
+            // file_put_contents('url_list.php', $oldfile.$newfile);
+            return $randStr;
+        } else{
+            return false;
         }
-     $conn = new mysqli($servername, $username, $password);
-     if ($conn->connect_error) {
-         die("Connection failed: " . $conn->connect_error);
-     } 
+    }
+    if(isset($_POST['url'])) {
+        $check = shortenUrl($_POST['url']);
+        setcookie("UrlCookie", $_POST['url'], time() + (60),"/");
+        if ($check) {
+            $msg = "<p class=\"success\">Url Created</p>
+            <a href=\"pages/{$check}.php\" target='_blank'>{$baseUrl}{$check}</a>";
+            rename('pages/temp.php','pages/' .$check.'.php');
+            createFile();
+        } else {
+            $msg = "<p class=\"error\">Invalid Url</p>";
+        }
+        //cleaner function part
+    }
+    function createFile(){
+        $temp = fopen('pages/temp.php', 'w');
+        $txt = '<?php 
+                    $url = "https://google.com";
+                    header("location: " . $_COOKIE["UrlCookie"]);
+                    $fileName = basename($_SERVER["PHP_SELF"]);
+                    unlink($fileName);
+        ?> ';
+        file_put_contents('pages/temp.php', $txt);
+    }
+    include 'pages/headerIndex.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>URL Shortener</title>
-        <link rel="stylesheet" href="styles/main.css"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <h1 class="mainTitle">Hello, you may want to create an account to use our services !</h1>
-        <form method="POST" action="">
-
-            <label for="name">Username</label>
-            <input type="text" placeholder="Votre pseudo" id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
-            <label for="mail">Email</label>
-            <input type="text" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
-            <label for="mdp">Password</label>
-            <input type="password" placeholder="Your password" id="pass" name="pass" /> <br>
-            <label for="mdp2">Password confirmation</label>
-            <input type="password" placeholder="Confirm your password" id="pass2" name="pass2" /> <br>
-
-            <input type="submit" value="submit" name="submit" class="registerbtn">
-    </form>
-    <?php     
-        if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
-         ?>
-         <?php include 'footer.php';?>
-    </body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Minilink</title>
+      <link rel="stylesheet" href="styles/main.css"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <div class="mainIndex">
+         <form action="#" method="post">
+               <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
+               <input type="submit" name="submit" value="Short It">
+               <?php echo $msg;?>
+         </form>
+   </body>
 </html>

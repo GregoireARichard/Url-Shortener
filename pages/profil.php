@@ -79,7 +79,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your profile</title>
-    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="../styles/main.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
@@ -96,6 +96,7 @@
         <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views, linkID FROM urllinks WHERE id = $getid");
         while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
             if($row['Shorten']!= ".php"){//does not return empty links
+                //oh boi do im proud of this code
                     $linkID = $row['linkID'];
                     if(isset($_POST[$linkID .'on'])){
                         $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 1 WHERE LinkID = $linkID" );
@@ -115,39 +116,17 @@
                 echo "<div class='table'>
                         <div class='linkTable'><a href='". $row['Shorten']. "' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
                 echo "<div class='views'> <p class='viewsText'>". $row['Views'] ."</p></div> ";
-                echo "<div class='forms'>".$form . $form1 . "</div>" ; 
-                // echo $linkID;    
+                echo "<div class='forms'>".$form . $form1 . "</div>" ;   
             }
-            echo $linkID;
+            
             echo "</div>";
             
         } 
-        // $resultActive = $bdd->query("SELECT  Active FROM urllinks WHERE id = $getid");
-        // $row_ = $resultActive->fetch(PDO::FETCH_ASSOC);
-        // if(isset($_POST['on'])){
-        //     echo "blabla";
-        //     $form = "<form action ='#' method ='post'>
-        //                 <input type='submit' name='on' value='Turn On'>
-        //             </form>";
-        //     $row_['Active'] = True;
-        // } 
-        // if(isset($_POST['off'])){
-        //     echo "bluhbluh";
-        //     $row_['Active'] = False;
-        //     $form = "<form action ='#' method ='post'>
-        //                 <input type='submit' name='off' value='Turn Off'>
-        //             </form>";
-        // }
-        
-        /*
-        TODO : view incrementation
-        
-        */ 
             ?>
     </div>
     
     <?php include 'footer.php';?>
-    <script src="scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>
 
