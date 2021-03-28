@@ -1,11 +1,13 @@
-.linkTable{
-    height:50px;
-    width:150px;
-    border : 1px solid #000;
-}
+
 body{
     overflow: hidden;
     margin:0;
+    font-family: 'Poppins', sans-serif;
+}
+.main{
+    width:70vw;
+    margin: 0 auto;
+    text-align: center;
 }
 .footer{
     background-color:#F3DFC1;
@@ -19,3 +21,39 @@ body{
     text-align: center;
     margin-top:4vh;
 }
+.table{
+    display: flex;
+    text-align: center;
+    width:370px;
+    margin-left: 390px;
+    max-height: 50vh;
+}
+.linkTable{
+    height:50px;
+    width:150px;
+    /* border : 1px solid #000; */
+    margin-top:15px;
+}
+ /* .links{
+    padding-bottom:20px;
+} */
+.active__true, .active__false{
+    /* border: 1px solid #000; */
+    width:75px;
+}
+.views{
+    /* border:1px solid #000; */
+    width: 75px;
+}
+.active__true, .active__false:hover{
+    cursor: pointer;
+}
+.on{
+    border-bottom: 1px solid #368F8B;
+}
+/* [class |= active]{
+    margin-left:15px;
+}
+[class |= active]:hover{
+    cursor:pointer
+} */

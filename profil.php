@@ -43,6 +43,9 @@
         } else {
             $msg = "<p class=\"error\">Invalid Url</p>";
         }
+        //cleaner function part
+        $clean = $bdd->prepare("DELETE FROM urllinks WHERE Shorten = '.php'");
+        $clean->execute();
     }
     function createFile(){
         $temp = fopen('temp.php', 'w');
@@ -81,21 +84,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2 class="name">bonjour <?php echo $userinfo['username']; ?></h2>
-         <a href="signout.php">Se déconnecter</a>
-         <?php echo $msg;?>
-    <form action="#" method="post">
-        <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
-        <input type="submit" name="submit" value="Short It">
-    </form>
-    <h2 class="linkHistory">Your Mini Link history</h2>
-    <?php $resultLink = $bdd->query("SELECT Shorten FROM urllinks WHERE id = $getid");
-    while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
-        if($row['Shorten']!= ".php"){//does not return empty links
-            echo "<div class='linkTable'><a href='". $row['Shorten']. "'>". $row['Shorten']. "<a/><br /></div>"; 
-        }
-    }   
-        ?>
+    <div class="main">
+        <h2 class="name">Nice to see you again, <?php echo $userinfo['username']; ?></h2>
+        <a href="signout.php">Se déconnecter</a>
+            <?php echo $msg;?>
+        <form action="#" method="post">
+            <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
+            <input type="submit" name="submit" value="Short It">
+        </form>
+        <h2 class="linkHistory">Your Mini Link history</h2>
+        <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views FROM urllinks WHERE id = $getid");
+        while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
+            if($row['Shorten']!= ".php"){//does not return empty links
+                echo "<div class='table'>
+                        <div class='linkTable'><a href='". $row['Shorten']. "' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
+                echo "<div class='views'> <p class='viewsText'>". $row['Views'] ."</p></div> ";
+                if($row['Active']){
+                    echo "<div class=active__true><p class='on'>Link on</p></div>";
+                    
+                }else{
+                    echo "<div class=active__false><p class='off'>Link off</p></div>";
+                }
+            }
+                echo "</div>";
+        }  
+        
+        /*
+        TODO : view incrementation
+        
+        */ 
+            ?>
+    </div>
+    
     <?php include 'footer.php';?>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
+
