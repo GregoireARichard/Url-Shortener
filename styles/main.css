@@ -1,5 +1,21 @@
 .linkTable{
     height:50px;
-    width:350px;
+    width:150px;
     border : 1px solid #000;
+}
+body{
+    overflow: hidden;
+    margin:0;
+}
+.footer{
+    background-color:#F3DFC1;
+    width:100vw;
+    height:10vh;
+    position: fixed;
+    bottom:0;
+}
+.footerText{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top:4vh;
 }

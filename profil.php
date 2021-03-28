@@ -77,6 +77,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your profile</title>
     <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
     <h2 class="name">bonjour <?php echo $userinfo['username']; ?></h2>
@@ -86,12 +88,14 @@
         <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
         <input type="submit" name="submit" value="Short It">
     </form>
-    <?php $resultLink = $bdd->query("SELECT Original FROM urllinks WHERE id = $getid");
+    <h2 class="linkHistory">Your Mini Link history</h2>
+    <?php $resultLink = $bdd->query("SELECT Shorten FROM urllinks WHERE id = $getid");
     while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
-        if(!empty($row['Original'])){
-            echo "<div class='linkTable'>". $row['Original']. "<br /></div>"; //does not return empty links
+        if($row['Shorten']!= ".php"){//does not return empty links
+            echo "<div class='linkTable'><a href='". $row['Shorten']. "'>". $row['Shorten']. "<a/><br /></div>"; 
         }
     }   
         ?>
+    <?php include 'footer.php';?>
 </body>
 </html>

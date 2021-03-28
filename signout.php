@@ -13,7 +13,7 @@ session_destroy();
     <title>Sign out</title>
 </head>
 <body>
-    <h2>You're disconnect, you're going to be redirected</h2>
+    <h2>You're disconnected, you're going to be redirected</h2>
 </body>
 </html>
 <?php 
