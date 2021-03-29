@@ -36,7 +36,7 @@
         ?> ';
         file_put_contents('pages/temp.php', $txt);
     }
-    include 'pages/headerIndex.php';
+    // include 'pages/headerIndex.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +49,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
    </head>
+   <?php include 'pages/headerIndex.php'; ?>
    <body>
       <div class="mainIndex">
          <form action="#" method="post">

@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
        $erreur = "All field must be filled !";
     }
  }
-
+ include 'headerSignin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,16 +33,18 @@ if(isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="../styles/main.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form method="POST" action="">
-        <input type="mail" name="mail" placeholder="your mail"> <br>
-        <input type="password" name="pass" placeholder="your password">
-        <input type="submit" name="submit" value="connexion">
-    </form>
+   <div class="signinForm">
+      <form method="POST" action="">
+         <input type="mail" name="mail" placeholder="your mail"> <br>
+         <input type="password" name="pass" placeholder="your password">
+         <input type="submit" name="submit" value="connexion">
+      </form>
+    </div>
     <?php
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";

@@ -47,6 +47,7 @@
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      } 
+     
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,20 +60,22 @@
        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <body>
+       <?php include 'headerSignup.php'; ?>
         <h1 class="mainTitle">Hello, you may want to create an account to use our services !</h1>
-        <form method="POST" action="">
+        <div class="signupForm">
+            <form method="POST" action="">
+               <label for="name">Username</label>
+               <input type="text" placeholder="Votre pseudo" id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
+               <label for="mail">Email</label>
+               <input type="text" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
+               <label for="mdp">Password</label>
+               <input type="password" placeholder="Your password" id="pass" name="pass" /> <br>
+               <label for="mdp2">Password confirmation</label>
+               <input type="password" placeholder="Confirm your password" id="pass2" name="pass2" /> <br>
 
-            <label for="name">Username</label>
-            <input type="text" placeholder="Votre pseudo" id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
-            <label for="mail">Email</label>
-            <input type="text" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
-            <label for="mdp">Password</label>
-            <input type="password" placeholder="Your password" id="pass" name="pass" /> <br>
-            <label for="mdp2">Password confirmation</label>
-            <input type="password" placeholder="Confirm your password" id="pass2" name="pass2" /> <br>
-
-            <input type="submit" value="submit" name="submit" class="registerbtn">
-    </form>
+               <input type="submit" value="submit" name="submit" class="registerbtn">
+            </form>
+         </div>
     <?php     
         if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";

@@ -57,19 +57,7 @@
         ?> ';
         file_put_contents('temp.php', $txt);
     }
-        // if (isset($_GET['url'])) {
-    //     $urlCookieName = "UrlCookie";
-    //     $urlCookieValue = $_POST['url'];
-    //     setcookie($urlCookieName, $urlCookieValue, time() + (86400 * 30),"/");
-    //     echo $_COOKIE[$urlCookieName];
-    //     require_once('url_list.php');
-    //     if (isset($list[$_GET['url']])) {
-    //         $link = $list[$_GET['url']];
-    //         header('location:'.$link);
-    //     } else {
-    //         header('location:'.$baseUrl);
-    //     }
-    //} 
+    
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +72,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php include 'headerProfil.php'; ?>
     <div class="main">
         <h2 class="name">Nice to see you again, <?php echo $userinfo['username']; ?></h2>
         <a href="signout.php">Se déconnecter</a>

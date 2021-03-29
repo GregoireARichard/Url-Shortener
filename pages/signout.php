@@ -17,5 +17,5 @@ session_destroy();
 </body>
 </html>
 <?php 
-header("location: index.php" );
+
 ?>
