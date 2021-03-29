@@ -1,4 +1,9 @@
-// const buttonOn = document.querySelector('.button__true');
-// const buttonOff = document.querySelector('.button__false');
+const form = document.querySelector('.form_on')
+const form1 = document.querySelector('.form_off')
 
-// console.log(buttonOn, buttonOff);
+form.addEventListener('click',()=>{
+    console.log("form been clicked")
+})
+form1.addEventListener('click', ()=>{
+    console.log("form1 been clicked")
+})

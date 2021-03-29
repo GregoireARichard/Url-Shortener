@@ -1,4 +1,6 @@
 <?php 
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=URLmembers','root', '');
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $baseUrl = "localhost/URL/";
     $msg = ' ';
     
@@ -15,6 +17,15 @@
     }
     if(isset($_POST['url'])) {
         $check = shortenUrl($_POST['url']);
+        $ID = 0;
+        $original = $_POST['url'];
+        $shorten = $check . '.php';
+        $linkID = rand(10000,999999) + rand(10,150) - rand(150,1000);
+        $active = true;
+        $views = 0;
+        $date = date("Y-m-d");
+        $stmm = $bdd->prepare("INSERT INTO urllinks (ID, Original, Shorten, LinkID, Active, Views, Date)VALUES(?,?,?,?,?,?,?)");
+        $stmm->execute(array($ID, $original, $shorten, $linkID, $active, $views, $date));
         setcookie("UrlCookie", $_POST['url'], time() + (60),"/");
         if ($check) {
             $msg = "<p class=\"success\">Url Created</p>
@@ -36,7 +47,6 @@
         ?> ';
         file_put_contents('pages/temp.php', $txt);
     }
-    // include 'pages/headerIndex.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

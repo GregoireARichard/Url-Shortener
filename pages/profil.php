@@ -94,14 +94,14 @@
                         $resultActive->execute();
                     }
                     $isLinkOn =  "<div class=active__false><p class='off'>Link off</p></div>";
-                    $form = "<form action ='#' method ='post'>
+                    $form = "<form action ='#' method ='post' class='form_on'>
                                 <input type='submit' name='".$linkID."on' value='Turn On'>
                             </form>";
-                    $form1 = "<form action ='#' method ='post'>
+                    $form1 = "<form action ='#' method ='post' class='form_off'>
                                 <input type='submit' name='".$linkID."off' value='Turn Off'>
                             </form>";
                 echo "<div class='table'>
-                        <div class='linkTable'><a href='". $row['Shorten']. "' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
+                        <div class='linkTable'><a href='". $row['Shorten']. "' target='_blank' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
                 echo "<div class='views'> <p class='viewsText'>". $row['Views'] ."</p></div> ";
                 echo "<div class='forms'>".$form . $form1 . "</div>" ;   
             }

@@ -9,7 +9,6 @@
             $Shorten = $row['LinkID'];
             $resultViews = $bdd->prepare("UPDATE urllinks SET Views = Views + 1 WHERE LinkID = $Shorten" );
             $resultViews->execute();
-            $row['Views']++;
             header("location: ". $row['Original']);
         }
         elseif($_SERVER['REQUEST_URI'] == $queryUrl && $row['Active'] == false){
