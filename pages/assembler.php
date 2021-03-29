@@ -4,7 +4,7 @@
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $resultUrl = $bdd->query("SELECT Shorten, Active, Views, Original, LinkID FROM urllinks");
     while($row = $resultUrl->fetch(PDO::FETCH_ASSOC)){
-        $queryUrl = "/" . $baseUrl . "/". $row['Shorten'];
+        $queryUrl = "/" . $baseUrl ."/". "pages/". $row['Shorten'];
         if($_SERVER['REQUEST_URI'] == $queryUrl && $row['Active']){
             $Shorten = $row['LinkID'];
             $resultViews = $bdd->prepare("UPDATE urllinks SET Views = Views + 1 WHERE LinkID = $Shorten" );
@@ -17,10 +17,5 @@
         }
 
     }
-
-    
-    // echo $_SERVER['REQUEST_URI']; 
-    // echo "<br>";
-
     
 ?>
