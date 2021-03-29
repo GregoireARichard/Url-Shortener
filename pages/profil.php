@@ -50,7 +50,6 @@
     function createFile(){
         $temp = fopen('temp.php', 'w');
         $txt = '<?php 
-                    $url = "https://google.com";
                     header("location: " . $_COOKIE["UrlCookie"]);
                     $fileName = basename($_SERVER["PHP_SELF"]);
                     unlink($fileName);
@@ -75,7 +74,6 @@
     <?php include 'headerProfil.php'; ?>
     <div class="main">
         <h2 class="name">Nice to see you again, <?php echo $userinfo['username']; ?></h2>
-        <a href="signout.php">Se déconnecter</a>
             <?php echo $msg;?>
         <form action="#" method="post">
             <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
