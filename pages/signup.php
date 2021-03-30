@@ -58,6 +58,7 @@
         <link rel="stylesheet" href="../styles/main.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
     </head>
     <body>
        <?php include 'headerSignup.php'; ?>
