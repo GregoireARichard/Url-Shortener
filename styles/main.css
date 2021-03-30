@@ -4,7 +4,13 @@
     --lightBlue : #368F8B;
     --signOutRed: #EE7B6B;
     --background: #fff; /*for main pages*/
-}
+    --orange :#EEB76B;
+    --red : #EE7B6B;
+    --formColor : #fffaf3;
+    --frameColor1 :#FDC2B4;
+    --frameColor2 : #FDD8CF;
+    --frameColor3 : #FDE6DB;
+}   
 body{
     /* overflow: hidden; */
     margin:0;
@@ -23,6 +29,7 @@ body{
     height:35vh;
 }
 .footer{
+    z-index:3;
     background-color: var(--backgroundColor);
     width:100vw;
     height:10vh;
@@ -35,15 +42,21 @@ body{
     margin-top:4vh;
 }
 .header{
+    z-index:3;
     background-color: var(--backgroundColor);
     width:100vw;
     height:10vh;
     position: fixed;
     top:0;
 }
+.logoImg{
+    width:80%;
+}
 .headerText{
-    margin-top: 3vh;
-    margin-left:1000px;
+    display: flex;
+    justify-content: space-between;
+    width:100vw;
+    /* margin-left:1000px; */
     display: flex;
     font-family: var(--font);
     text-align: center;   
@@ -53,6 +66,7 @@ body{
     font-size: 20px;
 }
 .signup{
+    margin: 3vh 3vw 0 0;
     width: 10vw;
     height:4vh;
     background-color: var(--signOutRed);
@@ -109,13 +123,96 @@ body{
 
 /*Signin */
 .signinForm{
-    width:100vw;
-    margin:300px auto 0 auto;
-    text-align: center;
+    z-index:99;
+    width:840px;
+    height:400px;
+    margin:150px 0 0 100px;
+    background-color: var(--formColor);
+    border-radius : 7px;
+    position: fixed;
 }
-/*signup*/
-.signupForm{
-    width:100vw;
-    margin:300px auto 0 auto;
+.marginer{
+    margin-left:50px;
+}
+.orange{
+    color:var(--orange);
+}
+.red{
+    color:var(--red);
+}
+.wrapper{
+    display: inline;
+}
+.toSignUpLink{
+    color: #000;
+}
+input[type="mail"], input[type="password"]{
+    width:427px;
+    height:45px;
+    border:3px solid var(--red);
+    border-radius: 7px;
     text-align: center;
+    margin-bottom:30px;
+}
+input[type="submit"]{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--signOutRed);
+    border:none;
+    border-radius: 7px;
+    color:#fff;
+    height:50px;
+    width:200px;
+    font-size:18px;
+}
+input[type="submit"]:hover{
+    cursor:pointer;
+}
+.randomFrame{
+    border-radius : 10%;
+}
+.frame1{
+    z-index:0;
+    width:150px;
+    height:340px;
+    transform: rotate(-65deg);
+    border : 70px solid var(--frameColor1);
+    margin : 0 0 0 95vw;
+}
+.frame2{
+    z-index:-1;
+    width:100px;
+    height:50px;
+    transform: rotate(-10deg);
+    border : 30px solid var(--frameColor2);
+    margin: 0 0 50vh 60vw;
+}
+.frame3{
+    position: absolute;
+    top:15%;
+    z-index:-1;
+    width:150px;
+    height:75px;
+    transform: rotate(-10deg);
+    border : 25px solid var(--frameColor1);
+   
+}
+.frame4{
+    position: absolute;
+    top:35%;
+    right:20%;
+    z-index:-1;
+    width:150px;
+    height:75px;
+    transform: rotate(40deg);
+    border : 25px solid var(--frameColor3);
+}
+.frame5{
+    position: absolute;
+    top:65%;
+    right:95%;
+    z-index:-1;
+    width:20px;
+    height:15px;
+    transform: rotate(150deg);
+    border : 5px solid var(--frameColor2);
 }

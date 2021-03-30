@@ -38,14 +38,30 @@ if(isset($_POST['submit'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
 </head>
+<style>
+   body{
+      overflow:hidden;
+   } 
+</style>
 <body>
    <div class="signinForm">
-      <form method="POST" action="">
-         <input type="mail" name="mail" placeholder="your mail"> <br>
-         <input type="password" name="pass" placeholder="your password">
-         <input type="submit" name="submit" value="connexion">
-      </form>
+      <div class="marginer">
+         <h1 class="signinTitle">Wooo ! Welcome back to <strong class="orange">Mini</strong><strong class="red">Link</strong></h1>
+         <div class="wrapper"><p class="toSignUp">Don't have an account? Sign up <a href="signup.php" class="toSignUpLink">here</a> to unlock cool functionalities ! </p></div>
+         <form method="POST" action="">
+            <label class="labelsSignIn" for="mail">Email adress</label> <br>
+            <input type="mail" name="mail" placeholder=" "> <br>
+            <label class="labelsSignIn" for="password">Password</label> <br>
+            <input type="password" name="pass" placeholder=" "> <br>
+            <input type="submit" name="submit" value="Sign me in, Baby !">
+         </form>
+      </div>
     </div>
+    <div class="randomFrame frame1"></div>
+    <div class="randomFrame frame2"></div>
+    <div class="randomFrame frame3"></div>
+    <div class="randomFrame frame4"></div>
+    <div class="randomFrame frame5"></div>
     <?php
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";
