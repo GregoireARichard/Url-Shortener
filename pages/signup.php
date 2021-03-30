@@ -65,13 +65,13 @@
         <h1 class="mainTitle">Hello, you may want to create an account to use our services !</h1>
         <div class="signupForm">
             <form method="POST" action="">
-               <label for="name">Username</label>
+               <label for="name">Username</label> <br>
                <input type="text" placeholder="Votre pseudo" id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
-               <label for="mail">Email</label>
+               <label for="mail">Email</label> <br>
                <input type="text" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
-               <label for="mdp">Password</label>
+               <label for="mdp">Password</label> <br>
                <input type="password" placeholder="Your password" id="pass" name="pass" /> <br>
-               <label for="mdp2">Password confirmation</label>
+               <label for="mdp2">Password confirmation</label> <br>
                <input type="password" placeholder="Confirm your password" id="pass2" name="pass2" /> <br>
 
                <input type="submit" value="submit" name="submit" class="registerbtn">

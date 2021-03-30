@@ -22,12 +22,6 @@ body{
     margin: 100px auto 0 auto;
     text-align: center;
 }
-.mainIndex{
-    text-align: center;
-    margin-top: 150px;
-    width:70vw;
-    height:35vh;
-}
 .footer{
     z-index:3;
     background-color: var(--backgroundColor);
@@ -74,6 +68,7 @@ body{
 }
 .signin{
     width:20vw;
+    margin-top:22px;
 }
 .signupLink{
     color:#fff;
@@ -83,6 +78,11 @@ body{
 }
 .signoutLink{
     color:#000;
+}
+.linksWrapper{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
 }
 /*Header sign in part*/
 .table{
@@ -120,7 +120,22 @@ body{
     height:30px;
     text-align: center;
 }
-
+/*index*/
+.mainIndex{
+    border-radius: 7px;
+    height:330px;
+    width:650px;
+    background-color:var(--formColor);
+    margin: 150px 0 0 100px;
+}
+.marginerTop{
+    padding-top:40px;
+    margin-left:50px;
+}
+label.contextLink{
+    font-size:20px;
+    margin-bottom:5px;
+}
 /*Signin */
 .signinForm{
     z-index:99;
@@ -146,7 +161,7 @@ body{
 .toSignUpLink{
     color: #000;
 }
-input[type="mail"], input[type="password"]{
+input[type="mail"], input[type="password"], input[type="url"]{
     width:427px;
     height:45px;
     border:3px solid var(--red);
@@ -168,7 +183,7 @@ input[type="submit"]:hover{
     cursor:pointer;
 }
 .randomFrame{
-    border-radius : 10%;
+    border-radius:10%;
 }
 .frame1{
     z-index:0;
@@ -215,4 +230,45 @@ input[type="submit"]:hover{
     height:15px;
     transform: rotate(150deg);
     border : 5px solid var(--frameColor2);
+}
+.frame6{
+    position: absolute;
+    top:60%;
+    right:30%;
+    z-index:-1;
+    width:400px;
+    height:150px;
+    transform: rotate(150deg);
+    border : 65px solid var(--frameColor1);
+}
+input[type="url"]{
+    margin-top:5px;
+}
+/*responsive tablets*/
+@media only screen and (min-width: 768px){
+    .signinForm{
+        width:640px;
+        height:400px;
+        margin:150px 0 0 50px;
+    }
+    .mainIndex{
+        margin:150px 0 0 50px;
+    }
+}
+/*phone responsive*/
+@media only screen and (max-width: 600px) {
+    .signinForm{
+        width:440px;
+        height:400px;
+        margin:150px 0 0 50px;
+    }
+    .signupLink{
+        font-size:17px;
+    }
+    .linksWrapper{
+        width:200px;
+    }
+    .mainIndex{
+        margin:150px 0 0 0px;
+    }
 }

@@ -61,12 +61,28 @@
       <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
    </head>
    <?php include 'pages/headerIndex.php'; ?>
+   <style>
+       body{
+           overflow:hidden;
+       }
+   </style>
    <body>
       <div class="mainIndex">
-         <form action="#" method="post">
-               <input type="url" name="url" placeholder="Place Long Url eg:https://google.com">
-               <input type="submit" name="submit" value="Short It">
-               <?php echo $msg;?>
-         </form>
+         <div class="marginerTop">
+            <form action="#" method="post">
+                <label class="contextLink" for="contextLink">Enter your loo<strong class="orange">o</strong>oooo<strong class="red">o</strong>ng link here !</label> <br>
+                <input type="url" name="url" placeholder=" "> <br>
+                <input type="submit" name="submit" value="Make it Mini !">
+                <?php echo $msg;?>
+            </form>
+         </div>
+      </div>
+      <div class="randomFrame frame1"></div>
+      <div class="randomFrame frame2"></div>
+      <div class="randomFrame frame3"></div>
+      <div class="randomFrame frame4"></div>
+      <div class="randomFrame frame5"></div>
+      <div class="randomFrame frame6"></div>
+      <?php include 'pages/footer.php'; ?>
    </body>
 </html>

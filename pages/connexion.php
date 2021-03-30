@@ -54,6 +54,11 @@ if(isset($_POST['submit'])) {
             <label class="labelsSignIn" for="password">Password</label> <br>
             <input type="password" name="pass" placeholder=" "> <br>
             <input type="submit" name="submit" value="Sign me in, Baby !">
+            <?php
+         if(isset($erreur)) {
+            echo '<font color="red">'.$erreur."</font>";
+         }
+         ?>
          </form>
       </div>
     </div>
@@ -62,11 +67,6 @@ if(isset($_POST['submit'])) {
     <div class="randomFrame frame3"></div>
     <div class="randomFrame frame4"></div>
     <div class="randomFrame frame5"></div>
-    <?php
-         if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
-         ?>
    <?php include 'footer.php';?>
 </body>
 </html>
