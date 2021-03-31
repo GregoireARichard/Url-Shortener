@@ -90,17 +90,6 @@ body{
     /* border : 1px solid #000; */
     margin-top:15px;
 }
- /* .links{
-    padding-bottom:20px;
-} */
-.active__true, .active__false{
-    /* border: 1px solid #000; */
-    width:75px;
-}
-.views{
-    /* border:1px solid #000; */
-    width: 75px;
-}
 .on{
     border-bottom: 1px solid var(--lightBlue);
     width:70px;
@@ -160,7 +149,7 @@ input[type="mail"], input[type="password"], input[type="url"], input[type="text"
     text-align: center;
     margin-bottom:30px;
 }
-input[type="submit"]{
+.submitSignin{
     font-family: 'Poppins', sans-serif;
     background-color: var(--signOutRed);
     border:none;
@@ -170,7 +159,7 @@ input[type="submit"]{
     width:200px;
     font-size:18px;
 }
-input[type="submit"]:hover{
+.submitSignin:hover{
     cursor:pointer;
 }
 .randomFrame{
@@ -263,25 +252,42 @@ input[type="url"]{
     text-align: center;
 }
 .table{
-    margin-left:10px;
+    margin:0 auto;
     display: flex;
     text-align: center;
     width:370px;
-    max-height: 40vh;
+    max-height: 10vh;
 }
 .profileContainer1{
-    width:30vw;
+    width:40vw;
     background-color : var(--formColor);
     border-radius : 7px; 
     height:50vh; 
 }
+.subWrapper{
+    height:40vh;
+    overflow:auto;
+}
 .profileContainer2{
     margin-left:50px;
-    width:40vw;
+    width:50vw;
     text-align: center;
     background-color : var(--formColor);
     border-radius : 7px;
 }
+.phpFormOnOff{
+    width: 50px;
+    margin-left:100px; 
+    border:none;
+    background-color:var(--formColor);
+}
+.phpFormOnOff:hover{
+    cursor: pointer;
+}
+.views{
+    width:200px;
+}
+
 /*404*/
 .main404{
     width:70vw;
@@ -311,6 +317,21 @@ input[type="url"]{
     color:#fff;
     font-size:26px;
 }
+/*Scrollbar in profile,  section*/
+::-webkit-scrollbar {
+    width: 20px;
+  }
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--frameColor1); 
+    border-radius: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--signOutRed); 
+    border-radius: 7px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
 /*responsive tablets*/
 @media only screen and (min-width: 768px){
     .signinForm{
@@ -335,7 +356,11 @@ input[type="url"]{
         height : 350px;
         margin: 150px 0 0 50px;
     }
+    .phpFormOnOff{
+        margin-left:15px;
+    }
 }
+
 /*phone responsive*/
 @media only screen and (max-width: 600px) {
     .signinForm{
@@ -370,5 +395,8 @@ input[type="url"]{
         text-decoration: none;
         color:#fff;
         font-size:20px;
+    }
+    .phpFormOnOff{
+        margin-left:5px;
     }
 }

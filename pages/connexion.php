@@ -53,7 +53,7 @@ if(isset($_POST['submit'])) {
             <input type="mail" name="mail" placeholder=" "> <br>
             <label class="labelsSignIn" for="password">Password</label> <br>
             <input type="password" name="pass" placeholder=" "> <br>
-            <input type="submit" name="submit" value="Sign me in, Baby !">
+            <input class=submitSignin type="submit" name="submit" value="Sign me in, Baby !">
             <?php
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";

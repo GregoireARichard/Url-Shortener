@@ -1,6 +1,6 @@
 # Url-Shortener
 
-We would like to thanks numerous person and things that helped us through this project:
+We would like to thanks numerous persons and things that helped us through this project:
 
 - M. Berthier for his courses and help
 - Stack Oveflow

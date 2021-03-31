@@ -70,27 +70,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <style>
         body{
-            overflow-x:hidden;
+            overflow:hidden;
         }
         @media only screen and (min-width: 768px){
             input[type="url"]{
                 width:200px;
             }
-            input[type="submit"]{
+            /* input[type="submit"]{
                 width: 200px;
-            }
+            } */
         }
         @media only screen and (min-width: 600px){
             input[type="url"]{
                 width:180px;
             }
-            input[type = "submit"]{
+            /* input[type = "submit"]{
                 width:180px;
-            }
+            } */
         }
     </style>
     <?php include 'headerProfil.php'; ?>
@@ -101,40 +102,42 @@
         <form action="#" method="post">
         <label class="contextLink" for="contextLink">Enter your loo<strong class="orange">o</strong>oooo<strong class="red">o</strong>ng link here !</label> <br>
             <input type="url" name="url" placeholder=" "> <br>
-            <input type="submit" name="submit" value="Make it mini">
+            <input class="submitSignin" type="submit" name="submit" value="Make it mini">
         </form>
         </div>
         <div class="profileContainer2">
-            <h2 class="linkHistory">Your <strong class="orange">Mini</strong><strong class="red">Link</strong> history</h2>
-            <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views, linkID FROM urllinks WHERE id = $getid");
-            while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
-                if($row['Shorten']!= ".php"){//does not return empty links
-                    //oh boi do im proud of this code
-                        $linkID = $row['linkID'];
-                        if(isset($_POST[$linkID .'on'])){
-                            $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 1 WHERE LinkID = $linkID" );
-                            $resultActive->execute();
-                        }
-                        elseif(isset($_POST[$linkID .'off'])){
-                            $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 0 WHERE LinkID = $linkID" ); 
-                            $resultActive->execute();
-                        }
-                        $form = "<form action ='#' method ='post' class='formSwitcher form_on'>
-                                    <input type='submit' name='".$linkID."on' value='Turn On'>
-                                </form>";
-                        $form1 = "<form action ='#' method ='post' class='formSwitcher form_off'>
-                                    <input type='submit' name='".$linkID."off' value='Turn Off'>
-                                </form>";
-                    echo "<div class='table'>
-                            <div class='linkTable'><a href='". $row['Shorten']. "' target='_blank' class='links'>". $row['Shorten']. "<a/><br /></div>"; 
-                    echo "<div class='views'> <p class='viewsText'>". $row['Views'] ."</p><img src='../img/view.png' title='viewIcon' alt='viewIcon'/></div> ";
-                    echo "<div class='forms'>".$form . $form1 . "</div>" ;   
-                }
-                
-                echo "</div>";
-                
-            } 
-                ?>
+        <h2 class="linkHistory">Your <strong class="orange">Mini</strong><strong class="red">Link</strong> history</h2>
+            <div class="subWrapper">
+                <?php $resultLink = $bdd->query("SELECT Shorten, Active, Views, linkID, Original FROM urllinks WHERE id = $getid");
+                while($row = $resultLink->fetch(PDO::FETCH_ASSOC)){
+                    if($row['Shorten']!= ".php"){//does not return empty links
+                        //oh boi do im proud of this code
+                            $linkID = $row['linkID'];
+                            if(isset($_POST[$linkID .'on'])){
+                                $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 1 WHERE LinkID = $linkID" );
+                                $resultActive->execute();
+                            }
+                            elseif(isset($_POST[$linkID .'off'])){
+                                $resultActive = $bdd->prepare("UPDATE urllinks SET Active = 0 WHERE LinkID = $linkID" ); 
+                                $resultActive->execute();
+                            }
+                            $form = "<form action ='#' method ='post' class='formSwitcher form_on'>
+                                        <input class='phpFormOnOff' type='submit' name='".$linkID."on' value='✔️' title='Turn On'>
+                                    </form>";
+                            $form1 = "<form action ='#' method ='post' class='formSwitcher form_off'>
+                                        <input class='phpFormOnOff' type='submit' name='".$linkID."off' value='❌' title='Turn Off'>
+                                    </form>";
+                        echo "<div class='table'>
+                                <div class='linkTable'><a href='". $row['Shorten']. "' target='_blank' class='links' title='".$row['Original']."'>". $row['Shorten']. "<a/></div>"; 
+                        echo "<div class='views'><p class='viewsText'><img src='../img/view.png' title='viewIcon' alt='viewIcon'/>"." ". $row['Views'] ."</p></div> ";
+                        echo "<div class='forms'>".$form . $form1 . "</div>" ;   
+                    }
+                    
+                    echo "</div>";
+                    
+                } 
+                    ?>
+                    </div>
         </div>
          <div class="randomFrame frame3"></div>
          <div class="randomFrame frame4"></div>
