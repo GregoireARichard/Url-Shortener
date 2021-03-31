@@ -75,7 +75,7 @@
             <form action="#" method="post">
                 <label class="contextLink" for="contextLink">Enter your loo<strong class="orange">o</strong>oooo<strong class="red">o</strong>ng link here !</label> <br>
                 <input type="url" name="url" placeholder=" "> <br>
-                <input type="submit" name="submit" value="Make it Mini !">
+                <input type="submit" class="submitSignin" name="submit" value="Make it Mini !">
                 <?php echo $msg;?>
             </form>
          </div>
