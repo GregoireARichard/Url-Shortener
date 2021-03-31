@@ -81,17 +81,11 @@
             input[type="url"]{
                 width:200px;
             }
-            /* input[type="submit"]{
-                width: 200px;
-            } */
         }
         @media only screen and (min-width: 600px){
             input[type="url"]{
                 width:180px;
             }
-            /* input[type = "submit"]{
-                width:180px;
-            } */
         }
     </style>
     <?php include 'headerProfil.php'; ?>
