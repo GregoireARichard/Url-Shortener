@@ -5,8 +5,8 @@
 - We've been taught to do so, so that's how it'll be.
 
 # We have used barely two tutorials for this :
-- the first one from "primFx" in french for the sign in/up/out interface, it's been largely modified since then, see here : http://www.primfx.com/tuto-php-creer-espace-membre-1-3-inscription-156/
-- the second and last one is from Pujann see here : http://pujann.com.np/create-url-shortener-tutorial.php?i=1
+- the first one from "primFx" in french for the sign in/up/out interface, it's been widely modified since then, see here : http://www.primfx.com/tuto-php-creer-espace-membre-1-3-inscription-156/
+- the second and last one is from Pujann, in English see here : http://pujann.com.np/create-url-shortener-tutorial.php?i=1
 Only few parts of the tutorials have been used as it only gave us an idea of what to do, and we didn't use at all the same way.
 
 # How does this work ?
@@ -16,5 +16,7 @@ Only few parts of the tutorials have been used as it only gave us an idea of wha
 
 We would like to thanks numerous persons and things that helped us through this project:
 - M. Berthier for his courses and help
-- Stack Oveflow
+- Stack Oveflow for obvious reasons 
+- HETIC
+- The Sun that had the courtesy of showing itself during this week
 - The movie risky business and more particularily the music "Love on a real train"
