@@ -80,7 +80,7 @@
                      <label for="mdp2">Password confirmation</label> <br>
                      <input type="password" placeholder=" " id="pass2" name="pass2" /> <br>
 
-                     <input type="submit" value="Let's go !" name="submit" class="registerbtn">
+                     <input type="submit" value="Let's go !" class="submitSignin" name="submit" class="registerbtn">
                   <?php     
                   if(isset($erreur)) {
                         echo '<font color="red">'.$erreur."</font>";
