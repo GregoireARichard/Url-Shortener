@@ -22,7 +22,7 @@ Only few parts of the tutorials have been used as it only gave us an idea of wha
 
  So yeah, that's roughly how it works.
  
-
+# Thanks
 We would like to thank numerous people and elements which helped us through this project:
 - M. Berthier for his courses and help
 - Stack Oveflow for obvious reasons and the other websites we used.
@@ -30,5 +30,5 @@ We would like to thank numerous people and elements which helped us through this
 - The Sun that had the courtesy of showing itself during this week
 - The movie risky business and more particularily the music "Love on a real train"
 
-Floriane Ryan, Grégoire Richard
-March 31st, 2021
+Floriane Ryan and Grégoire Richard
+ - March 31st, 2021

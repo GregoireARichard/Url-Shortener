@@ -23,13 +23,13 @@
             return false;
         }
     }
-    if(isset($_POST['url'])) {
+    if(isset($_POST['url'])) { 
         $check = shortenUrl($_POST['url']);
-        setcookie("UrlCookie", $_POST['url'], time() + (60),"/");
+        setcookie("UrlCookie", $_POST['url'], time() + (60),"/"); // this cookie allows us to delete the temporary file, later
         $ID = $getid;
         $original = $_POST['url'];
         $shorten = $check . '.php';
-        $linkID = rand(10000,999999) + rand(10,150) - rand(150,1000);
+        $linkID = rand(10000,999999) + rand(10,150) - rand(150,1000); 
         $active = true;
         $views = 0;
         $date = date("Y-m-d");
@@ -47,7 +47,7 @@
         $clean = $bdd->prepare("DELETE FROM urllinks WHERE Shorten = '.php'"); //deletes all empty $_POST sent
         $clean->execute();
     }
-    function createFile(){
+    function createFile(){ // here we create a file that deletes itself after being useds
         $temp = fopen('temp.php', 'w');
         $txt = '<?php 
                     header("location: " . $_COOKIE["UrlCookie"]);
@@ -65,7 +65,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your profile</title>
+    <title>Your profile - MiniLink</title>
     <link rel="stylesheet" href="../styles/main.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
