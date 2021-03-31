@@ -1,5 +1,6 @@
 <div class="header">
     <div class="headerText">
-        <div class="signup"><a href="signin.php" class="signupLink">Sign in</a></div>
+        <a href="index.php"><img src="../img/logo.png" title="logo" alt="logo mnlnk" class="logoImg"/></a>
+        <div class="signup"><a href="connexion.php" class="signupLink">SIGN IN</a></div>
     </div>
 </div>

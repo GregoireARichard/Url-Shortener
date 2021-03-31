@@ -61,27 +61,40 @@
        <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
     </head>
     <body>
+       <style>
+          body{
+             overflow:hidden;
+          }
+       </style>
        <?php include 'headerSignup.php'; ?>
-        <h1 class="mainTitle">Hello, you may want to create an account to use our services !</h1>
         <div class="signupForm">
-            <form method="POST" action="">
-               <label for="name">Username</label> <br>
-               <input type="text" placeholder="Votre pseudo" id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
-               <label for="mail">Email</label> <br>
-               <input type="text" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
-               <label for="mdp">Password</label> <br>
-               <input type="password" placeholder="Your password" id="pass" name="pass" /> <br>
-               <label for="mdp2">Password confirmation</label> <br>
-               <input type="password" placeholder="Confirm your password" id="pass2" name="pass2" /> <br>
+           <div class="marginer">
+            <h1 class="mainTitle">Welcome to <strong class="orange">Mini</strong><strong class="red">Link</strong> we're glad to have you !</h1>
+                  <form method="POST" action="">
+                     <label for="name">Username</label> <br>
+                     <input type="text" placeholder=" " id="name" name="name" value="<?php if(isset($mail)) { echo $name; } ?>" /> <br>
+                     <label for="mail">Email adress</label> <br>
+                     <input type="mail" placeholder=" " id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
+                     <label for="mdp">Password</label> <br>
+                     <input type="password" placeholder=" " id="pass" name="pass" /> <br>
+                     <label for="mdp2">Password confirmation</label> <br>
+                     <input type="password" placeholder=" " id="pass2" name="pass2" /> <br>
 
-               <input type="submit" value="submit" name="submit" class="registerbtn">
-            </form>
+                     <input type="submit" value="Let's go !" name="submit" class="registerbtn">
+                  <?php     
+                  if(isset($erreur)) {
+                        echo '<font color="red">'.$erreur."</font>";
+                     }
+                     ?>
+               </form>
+            </div>
          </div>
-    <?php     
-        if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
-         ?>
+         <div class="randomFrame frame1"></div>
+         <div class="randomFrame frame2"></div>
+         <div class="randomFrame frame3"></div>
+         <div class="randomFrame frame4"></div>
+         <div class="randomFrame frame5"></div>
+         <div class="randomFrame frame6"></div>
          <?php include 'footer.php';?>
     </body>
 </html>

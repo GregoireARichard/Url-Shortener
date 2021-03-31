@@ -130,7 +130,6 @@ body{
 }
 .marginerTop{
     padding-top:40px;
-    margin-left:50px;
 }
 label.contextLink{
     font-size:20px;
@@ -161,7 +160,7 @@ label.contextLink{
 .toSignUpLink{
     color: #000;
 }
-input[type="mail"], input[type="password"], input[type="url"]{
+input[type="mail"], input[type="password"], input[type="url"], input[type="text"]{
     width:427px;
     height:45px;
     border:3px solid var(--red);
@@ -244,6 +243,25 @@ input[type="submit"]:hover{
 input[type="url"]{
     margin-top:5px;
 }
+/*Sign up page*/
+.signupForm{
+    width:840px;
+    height:550px;
+    background-color: var(--formColor);
+    margin: 95px 0 0 100px;
+    border-radius : 7px;
+}
+.signedOutMain{
+    width:840px;
+    height : 350px;
+    background-color: var(--formColor);
+    margin: 150px 0 0 250px;
+    border-radius : 7px;
+}
+.comeBack{
+    text-align: right;
+    margin-top:200px;
+}
 /*responsive tablets*/
 @media only screen and (min-width: 768px){
     .signinForm{
@@ -253,6 +271,20 @@ input[type="url"]{
     }
     .mainIndex{
         margin:150px 0 0 50px;
+    }
+    .signupForm{
+        width:640px;
+        height:550px;
+        margin: 150px 0 0 60px;
+    }
+    .mainTitle{
+        padding-top:5px;
+        font-size:20px;
+    }
+    .signedOutMain{
+        width:640px;
+        height : 350px;
+        margin: 150px 0 0 50px;
     }
 }
 /*phone responsive*/
@@ -270,5 +302,19 @@ input[type="url"]{
     }
     .mainIndex{
         margin:150px 0 0 0px;
+    }
+    .signupForm{
+        width:550px;
+        height:550px;
+        margin: 150px 25px 0 30px;
+    }
+    .mainTitle{
+        padding-top:5px;
+        font-size:20px;
+    }
+    .signedOutMain{
+        width:440px;
+        height : 350px;
+        margin: 150px 0 0 65px;
     }
 }
