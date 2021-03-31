@@ -10,13 +10,14 @@
 Only few parts of the tutorials have been used as it only gave us an idea of what to do, and we didn't use it at all in the same way.
 
 # How does this work ?
- - So first the user enters a link, we store it into the database and we create a temporay file that deletes itself after being clicked. Okay but it means we can't reuse it when we're connected, right? Well : Nope, it doesn't mean that. Because we stored the shortened and the original link into the database. So we just use the 404 page to reroute the link (see assembler.php and .htaccess to understand) in assembler.php there is a condition that show a 404 page if the link doesn't exist or redirects to the original link if it founds it into the database.
+ - So first the user enters a link, we store it into the database and we create a temporay file that deletes itself after being clicked. Okay but it means we can't reuse it when we're connected, right? Well : Nope, it doesn't mean that. Because we stored the shortened and the original link into the database. So we just use the 404 page to reroute the link (see assembler.php and .htaccess to understand). 
+ In assembler.php there is a condition that shows a 404 page if the link doesn't, or redirects to the original link if it has found it into the database.
  So yeah, that's roughly how it works.
  
 
 We would like to thank numerous people and elements which helped us through this project:
 - M. Berthier for his courses and help
-- Stack Oveflow for obvious reasons 
+- Stack Oveflow for obvious reasons and the other websites we used.
 - HETIC
 - The Sun that had the courtesy of showing itself during this week
 - The movie risky business and more particularily the music "Love on a real train"
