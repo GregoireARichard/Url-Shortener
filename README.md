@@ -12,6 +12,14 @@ Only few parts of the tutorials have been used as it only gave us an idea of wha
 # How does this work ?
  - So first the user enters a link, we store it into the database and we create a temporay file that deletes itself after being clicked. Okay but it means we can't reuse it when we're connected, right? Well : Nope, it doesn't mean that. Because we stored the shortened and the original link into the database. So we just use the 404 page to reroute the link (see assembler.php and .htaccess to understand). 
  In assembler.php there is a condition that shows a 404 page if the link doesn't, or redirects to the original link if it has found it into the database.
+ important point, when a link is stored to the database but the user doesn't have an account, the User ID entered into the database is equal to 0. 
+
+ # About the Database : 
+- there are two : 
+- the first one, (urlmembers) stores for each user an Username, a mail, a password and an ID.
+ - the second one, (urllinks) stores for everylink an ID (the same as in the members table), an original link, a shortened link, a LinkID, a boolean called Active which states if the link must be active or not (See assembler.php), the number of views, and the date it has been registered. 
+
+
  So yeah, that's roughly how it works.
  
 
@@ -21,3 +29,6 @@ We would like to thank numerous people and elements which helped us through this
 - HETIC
 - The Sun that had the courtesy of showing itself during this week
 - The movie risky business and more particularily the music "Love on a real train"
+
+Floriane Ryan, Grégoire Richard
+March 31st, 2021
