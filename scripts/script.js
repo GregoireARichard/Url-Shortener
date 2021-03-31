@@ -1,9 +1,11 @@
-const form = document.querySelector('.form_on')
-const form1 = document.querySelector('.form_off')
+// const form = document.querySelector('.form_on')
+// const form1 = document.querySelector('.form_off')
 
-form.addEventListener('click',()=>{
-    console.log("form been clicked")
-})
-form1.addEventListener('click', ()=>{
-    console.log("form1 been clicked")
-})
+// form.addEventListener('click',()=>{
+//     form.style.background = 'red'
+//     form1.style.background = 'none'
+// })
+// form1.addEventListener('click', ()=>{
+//     form1.style.background = 'red'
+//     form.style.background = 'none'
+// })
