@@ -83,13 +83,7 @@ body{
     justify-content: space-between;
 }
 /*Header sign in part*/
-.table{
-    display: flex;
-    text-align: center;
-    width:370px;
-    margin-left: 390px;
-    max-height: 50vh;
-}
+
 .linkTable{
     height:50px;
     width:150px;
@@ -268,13 +262,22 @@ input[type="url"]{
     margin: 200px auto 0 auto;
     text-align: center;
 }
+.table{
+    margin-left:10px;
+    display: flex;
+    text-align: center;
+    width:370px;
+    max-height: 40vh;
+}
 .profileContainer1{
     width:30vw;
     background-color : var(--formColor);
-    border-radius : 7px;  
+    border-radius : 7px; 
+    height:50vh; 
 }
 .profileContainer2{
-    width:30vw;
+    margin-left:50px;
+    width:40vw;
     text-align: center;
     background-color : var(--formColor);
     border-radius : 7px;

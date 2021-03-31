@@ -73,6 +73,9 @@
 </head>
 <body>
     <style>
+        body{
+            overflow-x:hidden;
+        }
         @media only screen and (min-width: 768px){
             input[type="url"]{
                 width:200px;
