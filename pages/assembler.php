@@ -1,4 +1,5 @@
 <?php 
+    include '404.php';
     $baseUrl = "Url-Shortener";
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=URLmembers','root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

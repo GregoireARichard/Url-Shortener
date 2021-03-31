@@ -47,6 +47,9 @@
         ?> ';
         file_put_contents('pages/temp.php', $txt);
     }
+    //clean function that is also used in profil.php
+    $clean = $bdd->prepare("DELETE FROM urllinks WHERE Shorten = '.php'"); //deletes all empty $_POST sent
+    $clean->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">

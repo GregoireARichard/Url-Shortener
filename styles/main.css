@@ -17,11 +17,6 @@ body{
     font-family: var(--font);
     background-color:var(--background);
 }
-.main{
-    width:70vw;
-    margin: 100px auto 0 auto;
-    text-align: center;
-}
 .footer{
     z-index:3;
     background-color: var(--backgroundColor);
@@ -65,6 +60,9 @@ body{
     height:4vh;
     background-color: var(--signOutRed);
     border-radius: 5%;
+}
+.signout{
+    margin: 3vh 3vw 0 0;
 }
 .signin{
     width:20vw;
@@ -262,6 +260,54 @@ input[type="url"]{
     text-align: right;
     margin-top:200px;
 }
+/*profil section*/
+.main{
+    display: flex;
+    justify-content: space-between;
+    width:80vw;
+    margin: 200px auto 0 auto;
+    text-align: center;
+}
+.profileContainer1{
+    width:30vw;
+    background-color : var(--formColor);
+    border-radius : 7px;  
+}
+.profileContainer2{
+    width:30vw;
+    text-align: center;
+    background-color : var(--formColor);
+    border-radius : 7px;
+}
+/*404*/
+.main404{
+    width:70vw;
+    height:50vh;
+    background-color : var(--formColor);
+    border-radius : 7px; 
+    margin :150px auto 0 auto;
+    text-align: center;
+}
+.img404{
+    width:25%;
+    margin-top: -50px;
+}
+.error404{
+    margin-top: -25px;
+    font-size: 17px;
+}
+.linkContainerUnfound{
+    width: 20vw;
+    height:10vh;
+    background-color: var(--signOutRed);
+    border-radius :7px;
+    margin: 50px auto 0 auto;
+}
+.linkNotFound {
+    text-decoration: none;
+    color:#fff;
+    font-size:26px;
+}
 /*responsive tablets*/
 @media only screen and (min-width: 768px){
     .signinForm{
@@ -316,5 +362,10 @@ input[type="url"]{
         width:440px;
         height : 350px;
         margin: 150px 0 0 65px;
+    }
+    .linkNotFound {
+        text-decoration: none;
+        color:#fff;
+        font-size:20px;
     }
 }
