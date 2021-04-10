@@ -1,7 +1,4 @@
 <?php 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=URLmembers','root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if(isset($_POST['submit'])) {
@@ -43,10 +40,10 @@
         } else {
            $erreur = "Tous les champs doivent être complétés !";
         }
-     $conn = new mysqli($servername, $username, $password);
-     if ($conn->connect_error) {
-         die("Connection failed: " . $conn->connect_error);
-     } 
+   //   $conn = new mysqli($servername, $username, $password);
+   //   if ($conn->connect_error) {
+   //       die("Connection failed: " . $conn->connect_error);
+   //   } 
      
 ?>
 <!DOCTYPE html>
