@@ -24,7 +24,6 @@ Only few parts of the tutorials have been used as it only gave us an idea of wha
  
 # Thanks
 We would like to thank numerous people and elements which helped us through this project:
-- M. Berthier for his courses and help
 - Stack Oveflow for obvious reasons and the other websites we used.
 - HETIC
 - The Sun that had the courtesy of showing itself during this week
